@@ -4,33 +4,32 @@
 
 from driverinfo import drivers
 
-drivers 
-def dr_fp1(drivers, x):
-    return [i[x] for i in drivers]
+drivers      
 
-#checks to see if there was a reserve driver in any of the FP sessions (0 value denotes reserve driver)
-def reserve(session_1, x, session_2, session_3):
-     if session_1[x] == 0:
-        session_1[x] = int(round((session_2[x] + session_3[x]) / 2, 0))
-
-     if session_2[x] == 0:
-        session_2[x] = int(round((session_1[x] + session_3[x]) / 2, 0))
-        
-     if session_3[x] == 0:
-        session_3[x] = int(round((session_1[x] + session_2[x]) / 2, 0))
+def dr_fp1(drivers, index):
+    return [i[index] for i in drivers]
     
+#checks to see if there was a reserve driver in any of the FP sessions (0 value in "drivers" denotes reserve driver)
+def reserve(list, index):
+    avg = int(round((list[index][2] + list[index][3] + list[index][4]) / 3, 0))
+    for index in list:
+        if index[2] == 0:
+            index[2] = avg
+        elif index[3] == 0:
+              index[3] = avg
+        elif index[4] == 0:
+              index[4] = avg
+        else: pass
+
+reserve(drivers, 0)
+
 # convert func to int
-drivers_names = [i for i in dr_fp1(drivers, 0)]
-points_fp1 = [int(i) for i in dr_fp1(drivers, 2)]
-points_fp2 = [int(i) for i in dr_fp1(drivers, 3)]
-points_fp3 = [int(i) for i in dr_fp1(drivers, 4)]
+drivers_names = dr_fp1(drivers, 0)
+points_fp1 = dr_fp1(drivers, 2)
+points_fp2 = dr_fp1(drivers, 3)
+points_fp3 = dr_fp1(drivers, 4)
 
-y = 0
-while y < len(points_fp1):
-    reserve(points_fp1, y, points_fp2, points_fp3)
-    y += 1
-
-sumindex = [sum(elts) for elts in zip(points_fp1, points_fp2, points_fp3)]
+sumindex = [sum(fp_total) for fp_total in zip(points_fp1, points_fp2, points_fp3)]
 
 for d, s in zip(drivers_names, sumindex):
     print("Driver/points:", s, d)
