@@ -23,14 +23,16 @@ def reserve(list, index):
         else: pass
 
 drivers_names = dr_fp1(drivers, 0)
-points_fp1 = dr_fp1(drivers, 2)
 
 if sprint_wk != "yes":
     reserve(drivers, 0)
+    points_fp1 = dr_fp1(drivers, 2)
     points_fp2 = dr_fp1(drivers, 3)
     points_fp3 = dr_fp1(drivers, 4)
     sumindex = [sum(fp_total) for fp_total in zip(points_fp1, points_fp2, points_fp3)]
-else: sumindex = points_fp1
+else: 
+    points_fp1 = dr_fp1(drivers, 2)
+    sumindex = points_fp1
 
 for d, s in zip(drivers_names, sumindex):
     print("Driver/points:", s, d)
