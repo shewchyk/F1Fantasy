@@ -13,24 +13,14 @@ def dr_fp1(drivers, index):
 #don't call on Sprint weekends
 def reserve(list, driver_index, fp_index):
     avg = int(round((list[driver_index][2] + list[driver_index][3] + list[driver_index][4]) / 3, 0))
-    random = 0
-    while random < len(list):
+    i = 0
+    while i < len(list):
         for driver_index in list:
             if driver_index[fp_index] == 0:
                 driver_index[fp_index] = avg
             else: pass
-        random += 1
+        i += 1
         fp_index += 1
-
-"""         
-            
-        elif index[3] == 0:
-              index[3] = avg
-        elif index[4] == 0:
-              index[4] = avg
-        else: pass
-
- """
 
 if sprint_wk != "yes":
     reserve(drivers, 0, 2)
