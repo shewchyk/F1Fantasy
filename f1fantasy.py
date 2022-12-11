@@ -16,11 +16,14 @@ def reserve(list, driver_index, fp_index):
     i = 0
     while i < len(list):
         for driver_index in list:
-            if driver_index[fp_index] == 0:
-                driver_index[fp_index] = avg
+            if driver_index[2] == 0:
+                driver_index[2] = avg
+            if driver_index[3] == 0:
+                driver_index[3] = avg
+            if driver_index[4] == 0:
+                driver_index[4] = avg
             else: pass
         i += 1
-        fp_index += 1
 
 if sprint_wk != "yes":
     reserve(drivers, 0, 2)
