@@ -1,5 +1,5 @@
 # F1Fantasy
-Console (for now) program to help determine optimal F1 fantasy moves each week
+Console program (for now) to help determine optimal F1 fantasy moves each week
 
 ## Programming goals:
 1. While and for loops
