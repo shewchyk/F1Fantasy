@@ -4,8 +4,6 @@
 
 from driverinfo import drivers_2023, sprint_wk
 
-drivers_2023 
-
 def dr_fp1(drivers, index):
     return [i[index] for i in drivers]  
       
