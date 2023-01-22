@@ -1,22 +1,18 @@
 # Phase 1 - Program will determine recommended fantasy moves based on a point system from a total of FP performance for standard weekends
 # Phase 2 - Include update to account for sprint weekends
-# Phase 3 - errors for entering duplicate and non-existant finishing positions
+# Phase 3 - account for reserve drivers
 
-from driverinfo import drivers_2023, sprint_wk
-
-def dr_fp1(drivers, index):
-    return [i[index] for i in drivers]  
-      
+from driverinfo import drivers_2023
+from functions import dr_fpr, sprint_wk
 if sprint_wk != "yes":
-    points_fp1 = dr_fp1(drivers_2023, 2)
-    points_fp2 = dr_fp1(drivers_2023, 3)
-    points_fp3 = dr_fp1(drivers_2023, 4)
-    sumindex = [sum(fp_total) for fp_total in zip(points_fp1, points_fp2, points_fp3)]
+    from regwken import sumindex_rw 
+    sumindex = sumindex_rw
 else: 
-    points_fp1 = dr_fp1(drivers_2023, 2)
-    sumindex = points_fp1
+    from sprintwken import sumindex_sw
+    sumindex = sumindex_sw
 
-drivers_names = dr_fp1(drivers_2023, 0)
+#Final result
+drivers_names = dr_fpr(drivers_2023, 0)
 
 for d, s in zip(drivers_names, sumindex):
     print("Driver/points:", s, d)
