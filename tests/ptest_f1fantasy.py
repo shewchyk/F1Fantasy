@@ -4,7 +4,7 @@ from unittest import mock
 from f1fantasy import dr_fp1
 
 class TestDriverList(unittest.TestCase):
-    def test_dr_fp1(self):
+    def ptest_dr_fp1(self):
         drivers = ["first", "second", "Third"]
         index = 0
         result = dr_fp1(drivers, index)

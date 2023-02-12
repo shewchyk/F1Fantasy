@@ -1,22 +1,21 @@
 import unittest
 import unittest.mock
-from unittest import mock
-from driverinfo import fp_sprint
+from unittest.mock import patch
+from class_driverinfo import sprint
+import pytest
 
-class TestFpPoints(unittest.TestCase):
-    def test_fp_sprint(self):
-        mock_list = mock.MagicMock()
-        mock_list.execute = mock.MagicMock(return_value = ["driver"])
-        self.fp_sprint(0, mock_list)
-        assert fp_sprint == list
-       
+@pytest.fixture
+def driver_index_b():
+    return sprint(0, ["Driver A", "Driver B"])
 
-if __name__ == '__main__':
-    unittest.main()
-"""
-def fp_sprint(driver_index, list):
-    print("Enter FP finishing positions for", str(list[driver_index][0]))
-    fp1 = [int(x) for x in input().split()]
-    fp_point_by_session = list[driver_index].extend(fp1) 
-    return fp_point_by_session
-"""
+#Sprint test
+def test_fp_sprint(driver_index_b):
+    driver_index_b.fp_sprint()
+    input = mock_user_input()
+
+    def mock_user_input():
+        return '5 5 5'
+
+
+#if __name__ == '__main__':
+#    unittest.main()  
