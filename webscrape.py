@@ -98,7 +98,7 @@ def pos_int(list, surname):
 def webscrape():
     a = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]
     x = 0
-    while x <= 2:
+    while x < len(race_name):
        webdriver = get_webdriver(race_name[x])
        time.sleep(3)
        #region clears cookie popup
