@@ -1,8 +1,5 @@
 #remaining 2023 races
 #!!!future race URLs are estimated!!! URLs are not published until after the session
-
-
-
 #Name of country race where the race is being held in all lowercase letters
 #For USA and Italy races use city name
 race_name = input("What race is it?: ")
