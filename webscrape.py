@@ -27,6 +27,7 @@ Piastri = []
 Hulkenberg = []
 De_vries = []
 Sargeant = []
+Reserve = []
 #endregion
 
 def get_webdriver(race_name): 
@@ -90,9 +91,13 @@ def list_ext(name_web, pos_web):
     #endregion
 
 #Converts list contents from web elements (text) to int
+#If statement averages sessions results for drivers who missed an FP session(s) (replaced by reserve drivers / mechanical issues / etc.)
 def pos_int(list, surname):
     list = [int(x) for x in list]
-    total = sum(list)
+    if len(list) <= 2:
+        a = sum(list) / len(list)
+        total = int(round(sum(list) + a, 0))
+    else: total = int(round(sum(list), 0))
     print(total, surname, list)
 
 def webscrape():
@@ -109,13 +114,12 @@ def webscrape():
        while y < len(a):
            try:
             name_web = webdriver.find_element(by="xpath", value="/html/body/div[2]/main/article/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[" + a[y] + "]/td[4]/span[2]")
-           except NoSuchElementException: 
-               pass
+           except NoSuchElementException:
+               break
            try:
             pos_web = webdriver.find_element(by="xpath", value="/html/body/div[2]/main/article/div/div[2]/div[2]/div[2]/div[2]/table/tbody/tr[" + a[y] + "]/td[2]")
-           except NoSuchElementException: 
-               pass
-           #print(name_web.text, pos_web.text)
+           except NoSuchElementException:
+               break
            list_ext(name_web, pos_web.text)
            y += 1
        x += 1
