@@ -27,7 +27,6 @@ Piastri = []
 Hulkenberg = []
 De_vries = []
 Sargeant = []
-Reserve = []
 #endregion
 
 def get_webdriver(race_name): 
