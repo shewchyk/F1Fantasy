@@ -6,7 +6,7 @@ race_name = input("What race is it?: ")
 if race_name == "austria" or race_name == "belgium" or race_name == "qatar" or race_name == "austin" or race_name == "brazil":
         print(race_name, "is a sprint weekend, only FP1 is valid for fantasy scoring.")
 else: 
-        print(race_name, "is a regular weekend and all FP sessions are valid for fantasy scroing.")
+        print(race_name, "is a regular weekend and all FP sessions are valid for fantasy scoring.")
 
 spain = ["https://www.formula1.com/en/results.html/2023/races/1211/spain/practice-1.html", "https://www.formula1.com/en/results.html/2023/races/1211/spain/practice-2.html", "https://www.formula1.com/en/results.html/2023/races/1211/spain/practice-3.html"]
 canada = ["https://www.formula1.com/en/results.html/2023/races/1212/canada/practice-1.html", "https://www.formula1.com/en/results.html/2023/races/1212/canada/practice-2.html", "https://www.formula1.com/en/results.html/2023/races/1212/canada/practice-3.html"]
