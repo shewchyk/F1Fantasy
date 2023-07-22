@@ -27,6 +27,7 @@ Piastri = []
 Hulkenberg = []
 De_vries = []
 Sargeant = []
+Ricciardo = []
 #endregion
 
 def get_webdriver(race_name): 
@@ -87,6 +88,8 @@ def list_ext(name_web, pos_web):
             De_vries.append(pos_web)
         case "Sargeant":
             Sargeant.append(pos_web)
+        case "Ricciardo":
+             Ricciardo.append(pos_web)
     #endregion
 
 #Converts list contents from web elements (text) to int
@@ -142,5 +145,6 @@ pos_int(Zhou, "Zhou")
 pos_int(Ocon, "Ocon")
 pos_int(Piastri, "Piastri") 
 pos_int(Hulkenberg, "Hulkenberg") 
-pos_int(De_vries, "De_vries") 
+#pos_int(De_vries, "De_vries") 
 pos_int(Sargeant, "Sargeant") 
+pos_int(Ricciardo, "Ricciardo")
